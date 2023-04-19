@@ -97,13 +97,3 @@ button {
     justify-content: space-between;
     align-items: center;
 }
-
-#bottom-row{
-    display: flex;
-    flex-direction: row;
-}
-
-#bottom-column{
-    display: flex;
-    flex-direction: column;
-}

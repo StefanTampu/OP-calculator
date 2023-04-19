@@ -3,6 +3,18 @@ let a;
 let b;
 let operation;
 
+const computation = document.getElementById("computation");
+
+const buttons = document.querySelectorAll("button");
+buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+        computation.textContent = ` ${button.id}`;
+    })
+})
+
+const answer = document.getElementById("answer");
+answer.textContent = "0";
+
 //Operational functions
 
 const add = arr => arr.reduce((a,b) => a+b, 0);

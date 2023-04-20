@@ -5,16 +5,23 @@ let operator = null;
 
 const computation = document.getElementById("computation");
 const answer = document.getElementById("answer");
-const operatorBtn = document.querySelectorAll(".operator-btn");
-const numberBtn = document.querySelectorAll("number-btn");
+const operatorBtns = document.querySelectorAll(".operator-btn");
+const numberBtns = document.querySelectorAll("number-btn");
 const plusMinus = document.getElementById("&plusmn;");
 const dot = document.getElementById("dot");
 const backSpace = document.getElementById("back-spc");
 const cancel = document.getElementById("cancel");
 const equals = document.getElementById("equals");
-
-
 const buttons = document.querySelectorAll("button");
+
+const createNumber = (a,b) => {
+    a.concat(b);
+}
+
+numberBtns.forEach((button) => {
+    button.addEventListener("click", () => {})
+})
+
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
         computation.textContent = `${button.id}`;

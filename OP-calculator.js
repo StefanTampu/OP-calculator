@@ -17,7 +17,9 @@ const buttons = document.querySelectorAll("button");
 
 numberBtns.forEach((numBtn) => {
     numBtn.addEventListener("click", () => {
-        computation.textContent += numBtn.id;
+        if (!answer.textContent){
+            computation.textContent += numBtn.id;
+        }
     })
 })
 
@@ -36,6 +38,7 @@ operatorBtns.forEach((operatorBtn) => {
     })
 })
 
+//Redundant function that could be condensed?
 const activate = () => {
     second = Number(computation.textContent);
     console.log(first, second);
@@ -62,6 +65,10 @@ const multiply = arr => arr.reduce((a,b) => a*b, 1);
 
 const divide = arr => arr.reduce((a,b) => a/b);
 
+const square = num => num*num;
+
+const percentage = arr => arr.reduce((a,b) => (a/b)*100); 
+
 const operate = (a, b, operation) => {
     let result;    
     if (operation === "add"){
@@ -72,6 +79,12 @@ const operate = (a, b, operation) => {
         result = multiply([a, b]);
     } else if (operation === "divide"){
         result = divide([a, b])
+    } else if (operation === "sqr"){
+        result = square(a);
+    } else if (operation === "radical"){
+        result = Math.sqrt(a);
+    } else if (operation === "percnt"){
+        result = percentage([a,b]) + "%";
     }
     return result;
 }

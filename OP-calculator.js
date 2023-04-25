@@ -29,7 +29,6 @@ operatorBtns.forEach((operatorBtn) => {
             first = Number(computation.textContent);
         } else {
             activate();
-            answer.textContent = first;
         }
         operator = operatorBtn.id;
         computation.textContent = "";

@@ -1,12 +1,12 @@
 //Operation variables
-let firstNum = "";
-let secondNum = "" ;
-let operator = null;
+let first;
+let second;
+let operator;
 
 const computation = document.getElementById("computation");
 const answer = document.getElementById("answer");
 const operatorBtns = document.querySelectorAll(".operator-btn");
-const numberBtns = document.querySelectorAll("number-btn");
+const numberBtns = document.querySelectorAll(".number-btn");
 const plusMinus = document.getElementById("&plusmn;");
 const dot = document.getElementById("dot");
 const backSpace = document.getElementById("back-spc");
@@ -14,22 +14,33 @@ const cancel = document.getElementById("cancel");
 const equals = document.getElementById("equals");
 const buttons = document.querySelectorAll("button");
 
-const createNumber = (a,b) => {
-    a.concat(b);
-}
 
-numberBtns.forEach((button) => {
-    button.addEventListener("click", () => {})
-})
-
-buttons.forEach((button) => {
-    button.addEventListener("click", () => {
-        computation.textContent = `${button.id}`;
+numberBtns.forEach((numBtn) => {
+    numBtn.addEventListener("click", () => {
+        computation.textContent += numBtn.id;
     })
 })
 
+operatorBtns.forEach((operatorBtn) => {
+    operatorBtn.addEventListener("click", () => {
+        if (computation.textContent != ""){
+            first = Number(computation.textContent);
+        }
+        operator = operatorBtn.id;
+        computation.textContent = "";
+        console.log(first);
+    })
+})
 
-answer.textContent = "0";
+equals.addEventListener("click", () => {
+    second = Number(computation.textContent);
+    console.log(first, second);
+    computation.textContent = "";
+    let value = operate(first, second, operator);
+    answer.textContent = value;
+    first = value;
+    console.log(first)
+})
 
 
 
@@ -54,5 +65,5 @@ const operate = (a, b, operation) => {
     } else if (operation === "divide"){
         result = divide([a, b])
     }
-    console.log(result);
+    return result;
 }

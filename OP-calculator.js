@@ -23,23 +23,31 @@ numberBtns.forEach((numBtn) => {
 
 operatorBtns.forEach((operatorBtn) => {
     operatorBtn.addEventListener("click", () => {
-        if (computation.textContent != ""){
+        if (!first){
             first = Number(computation.textContent);
+        } else {
+            activate();
+            answer.textContent = first;
         }
         operator = operatorBtn.id;
         computation.textContent = "";
+        answer.textContent = "";
         console.log(first);
     })
 })
 
-equals.addEventListener("click", () => {
+const activate = () => {
     second = Number(computation.textContent);
     console.log(first, second);
     computation.textContent = "";
     let value = operate(first, second, operator);
     answer.textContent = value;
     first = value;
-    console.log(first)
+    console.log(first);
+}
+
+equals.addEventListener("click", () => {
+    activate();
 })
 
 

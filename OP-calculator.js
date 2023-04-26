@@ -26,14 +26,18 @@ numberBtns.forEach((numBtn) => {
 
 operatorBtns.forEach((operatorBtn) => {
     operatorBtn.addEventListener("click", () => {
-        if (!first){
-            first = Number(computation.textContent);
-        } else {
-            if(computation.textContent){
-                activate();
-            }
-        }
         operator = operatorBtn.id;
+        if (!first){
+            first = Number(computation.textContent);    ///New number only becomes first if there is no answer as first already, allowing for multi-step calculations.
+        } else if(computation.textContent){
+            activate();                                 ///This makes sure that 0 is not taken in as second if no numbers are put in. Relevant for radical, square and plus-minus.
+        } 
+        if (operator === "radical" || operator === "sqr" || operator === "plus-minus"){
+            let value = operate(first, second, operator);
+            console.log(value);
+            answer.textContent = value;
+            first = value;
+        }
         computation.textContent = "";
         console.log(first);
     })

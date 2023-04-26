@@ -27,8 +27,6 @@ operatorBtns.forEach((operatorBtn) => {
     operatorBtn.addEventListener("click", () => {
         if (!first){
             first = Number(computation.textContent);
-        } else {
-            activate();
         }
         operator = operatorBtn.id;
         computation.textContent = "";

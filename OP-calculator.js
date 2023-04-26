@@ -24,6 +24,14 @@ numberBtns.forEach((numBtn) => {
     })
 })
 
+dot.addEventListener("click", () => {
+    if(!computation.textContent && !answer.textContent){
+        computation.textContent = "0.1";
+    } else if (!answer.textContent){
+        computation.textContent += ".";
+    }
+})
+
 operatorBtns.forEach((operatorBtn) => {
     operatorBtn.addEventListener("click", () => {
         if (!first){

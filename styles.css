@@ -71,6 +71,7 @@ button {
     box-sizing: border-box;
     width: 88px;
     height: 64px;
+    font-size: 2rem;
 }
 
 #equals {

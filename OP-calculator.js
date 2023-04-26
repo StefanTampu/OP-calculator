@@ -17,8 +17,9 @@ const buttons = document.querySelectorAll("button");
 
 numberBtns.forEach((numBtn) => {
     numBtn.addEventListener("click", () => {
-        if (!answer.textContent){
-            computation.textContent += numBtn.id;
+        computation.textContent += numBtn.id;       
+        if (answer.textContent){
+        answer.textContent = "";
         }
     })
 })
@@ -27,10 +28,13 @@ operatorBtns.forEach((operatorBtn) => {
     operatorBtn.addEventListener("click", () => {
         if (!first){
             first = Number(computation.textContent);
+        } else {
+            if(computation.textContent){
+                activate();
+            }
         }
         operator = operatorBtn.id;
         computation.textContent = "";
-        answer.textContent = "";
         console.log(first);
     })
 })
@@ -50,6 +54,12 @@ equals.addEventListener("click", () => {
     activate();
 })
 
+cancel.addEventListener("click", () => {
+    computation.textContent = "";
+    answer.textContent = "";
+    first = "";
+    second = "";
+})
 
 
 //Operational functions
@@ -75,13 +85,21 @@ const operate = (a, b, operation) => {
     } else if (operation === "multiply"){
         result = multiply([a, b]);
     } else if (operation === "divide"){
-        result = divide([a, b])
+        if (b === 0){
+            result = "WHY WOULD YOU DIVIDE BY 0???"
+        } else {
+            result = divide([a, b]);
+        }
     } else if (operation === "sqr"){
         result = square(a);
     } else if (operation === "radical"){
         result = Math.sqrt(a);
     } else if (operation === "percnt"){
-        result = percentage([a,b]) + "%";
+        if (b === 0){
+            result = "WHY 0????!!!"
+        } else {
+            result = percentage([a,b]) + "%";
+        }
     }
     return result;
 }

@@ -7,7 +7,7 @@ const computation = document.getElementById("computation");
 const answer = document.getElementById("answer");
 const operatorBtns = document.querySelectorAll(".operator-btn");
 const numberBtns = document.querySelectorAll(".number-btn");
-const plusMinus = document.getElementById("&plusmn;");
+const plusMinus = document.getElementById("plus-minus");
 const dot = document.getElementById("dot");
 const backSpace = document.getElementById("back-spc");
 const cancel = document.getElementById("cancel");
@@ -74,7 +74,7 @@ const divide = arr => arr.reduce((a,b) => a/b);
 
 const square = num => num*num;
 
-const percentage = arr => arr.reduce((a,b) => (a/b)*100); 
+const percentage = arr => arr.reduce((a,b) => (a/b)*100);
 
 const operate = (a, b, operation) => {
     let result;    
@@ -94,6 +94,8 @@ const operate = (a, b, operation) => {
         result = square(a);
     } else if (operation === "radical"){
         result = Math.sqrt(a);
+    } else if (operation === "plus-minus"){
+        result = a*-1;
     } else if (operation === "percnt"){
         if (b === 0){
             result = "WHY 0????!!!"

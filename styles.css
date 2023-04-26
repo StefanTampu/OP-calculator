@@ -42,6 +42,12 @@ header {
     justify-content: space-around;
 }
 
+#computation,
+#answer {
+    font-size: 2rem;
+}
+
+
 #buttons-container{
     width: 90%;
     flex: auto;

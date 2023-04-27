@@ -12,17 +12,25 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    background-color: beige;
+    background-color: hsla(230, 69%, 10%, 1);
 }
+
+/*#d1d8d7*/
 
 header {
     font-size: 2rem;
+    color: hsla(192, 15%, 94%, 1);
 }
 
 #calculator {
     width: 500px;
     height: 600px;
-    background-color: burlywood;
+    background-color: hsla(192, 15%, 94%, 1);
+    border-radius: 16px;
+    box-shadow: 
+    0 0 12px 3px hsla(192, 15%, 94%, 1),
+    inset 0 0 12px 12px hsla(356, 100%, 41%, 1),
+    0 0 24px 9px hsla(230, 69%, 50%, 1);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -32,7 +40,10 @@ header {
 #result-box{
     width: 90%;
     height: 144px;
-    background-color: white;
+    background-color: hsla(258, 83%, 65%, 1);
+    box-shadow: inset 0 0 4px 4px hsla(258, 83%, 45%, 1);
+    color: hsla(192, 15%, 94%, 1);
+    border-radius: 16px;
     margin: 32px;
     margin-bottom: 16px;
     padding: 8px;
@@ -44,7 +55,8 @@ header {
 
 #computation,
 #answer {
-    font-size: 2rem;
+    font-size: 2.5rem;
+    font-weight: 700;
 }
 
 
@@ -72,6 +84,28 @@ button {
     width: 88px;
     height: 64px;
     font-size: 2rem;
+    font-weight: 900;
+    color: hsla(192, 15%, 94%, 1);
+    background-color: hsla(356, 100%, 41%, 1);
+    border-radius: 4px;
+    margin: 1px;
+
+}
+
+button:hover{
+    background-color: hsla(230, 69%, 50%, 1);
+}
+
+#num-btns button:hover{
+    background-color: hsla(48, 93%, 53%, 1);
+}
+
+#cancel:hover, #back-spc:hover {
+    background-color: hsla(30, 100%, 51%, 1);
+}
+
+#equals:hover{
+    background-color: hsla(230, 100%, 70%, 1);
 }
 
 #equals {

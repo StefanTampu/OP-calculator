@@ -22,7 +22,10 @@ header {
     color: hsla(192, 15%, 94%, 1);
     padding: 0.25rem;
     border-radius: 2rem;
-    box-shadow: inset 0 0 1rem 1rem hsla(356, 100%, 41%, 1);
+    box-shadow: 
+    inset 0 0 1rem 1rem hsla(356, 100%, 41%, 1),
+    0 0 0.25rem 0.25rem hsla(192, 15%, 94%, 1),
+    0 0 0.5rem 0.5rem hsla(230, 69%, 50%, 1);
 }
 
 #calculator {

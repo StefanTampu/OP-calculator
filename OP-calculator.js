@@ -17,17 +17,16 @@ const buttons = document.querySelectorAll("button");
 
 numberBtns.forEach((numBtn) => {
     numBtn.addEventListener("click", () => {
-        computation.textContent += numBtn.id;       
-        if (answer.textContent){
-        answer.textContent = "";
+        if (!operator){
+            first="";
         }
+        computation.textContent += numBtn.id;
+        answer.textContent = "";    
     })
 })
 
 dot.addEventListener("click", () => {
-    if(!computation.textContent && !answer.textContent){
-        computation.textContent = "0.1";
-    } else if (!answer.textContent){
+    if (!answer.textContent){
         computation.textContent += ".";
     }
 })
@@ -59,6 +58,7 @@ const activate = () => {
     let value = operate(first, second, operator);
     answer.textContent = value;
     first = value;
+    operator = "";
     console.log(first);
 }
 

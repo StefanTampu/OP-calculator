@@ -73,6 +73,17 @@ cancel.addEventListener("click", () => {
     second = "";
 })
 
+backSpace.addEventListener("click", () => {
+    console.log("hello");
+    if (computation.textContent){
+        computation.textContent = computation.textContent.slice(0, -1);
+    } else if (answer.textContent){
+        let backValue = answer.textContent.slice(0,-1);
+        answer.textContent = backValue;
+        first = backValue;
+    }
+})
+
 
 //Operational functions
 
